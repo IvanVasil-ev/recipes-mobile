@@ -9,7 +9,7 @@ export const LinkingConfiguration: LinkingOptions<RootStackParamList> = {
     screens: {
       Root: 'root',
       Modal: 'modal',
-      NotFound: '*',
+      NewRecipe: 'NewRecipe',
     },
   },
 };

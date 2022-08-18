@@ -9,7 +9,8 @@ declare global {
 export type RootStackParamList = {
   Root: undefined;
   Modal: undefined;
-  NotFound: undefined;
+  Recipe: undefined;
+  NewRecipe: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

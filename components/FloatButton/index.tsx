@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export const FloatButton = () => (
-  <TouchableOpacity style={styles.container}>
+export const FloatButton = ({ navigation }: any) => (
+  <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('NewRecipe')}>
     <Text style={styles.text}>
       +
     </Text>

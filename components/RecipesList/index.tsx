@@ -1,11 +1,16 @@
 import * as React from 'react';
-import { FlatList, Platform, StyleSheet } from 'react-native';
+import {
+  Platform,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 import { View } from '../View';
 import { Text } from '../Text';
 import { RecipeItem } from './RecipeItem';
 
-export const RecipesList = () => {
+export const RecipesList = ({ navigation }: any) => {
   const data = [];
 
   return data.length ? (
@@ -25,6 +30,11 @@ export const RecipesList = () => {
       <Text style={styles.noContentText}>
         У вас еще нет рецептов
       </Text>
+      <TouchableOpacity style={styles.testRecipe} onPress={() => navigation.navigate('Recipe')}>
+        <Text>
+          Тестовый рецепт
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -40,5 +50,11 @@ const styles = StyleSheet.create({
   noContentText: {
     fontSize: 25,
     fontWeight: 'bold',
+  },
+  testRecipe: {
+    borderWidth: 2,
+    marginTop: 20,
+    padding: 10,
+    borderRadius: 5,
   },
 });

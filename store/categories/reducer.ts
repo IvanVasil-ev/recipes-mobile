@@ -3,11 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   categories: [
     { id: 1, title: 'Избранное' },
-    { id: 2, title: 'Горячее' },
-    { id: 3, title: 'Второе' },
-    { id: 4, title: 'Напитки' },
-    { id: 5, title: 'Десерты' },
-    { id: 6, title: 'Салаты' },
+    { id: 2, title: 'Всё' },
+    { id: 3, title: 'Горячее' },
+    { id: 4, title: 'Второе' },
+    { id: 5, title: 'Напитки' },
+    { id: 6, title: 'Десерты' },
+    { id: 7, title: 'Салаты' },
   ],
 };
 

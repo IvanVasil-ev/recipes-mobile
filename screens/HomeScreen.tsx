@@ -7,12 +7,13 @@ import {
   CategorySlider,
   RecipesList,
 } from '../components';
+import { RootStackScreenProps } from '../types';
 
-export const HomeScreen = () => (
+export const HomeScreen = ({ navigation }: RootStackScreenProps<'Root'>) => (
   <SafeAreaView style={styles.container}>
     <CategorySlider />
-    <RecipesList />
-    <FloatButton />
+    <RecipesList navigation={navigation} />
+    <FloatButton navigation={navigation} />
   </SafeAreaView>
 );
 
