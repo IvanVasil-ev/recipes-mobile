@@ -1,27 +1,50 @@
-import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Categories as C } from '../../constants/Categories';
 
-import { setActiveCategory } from '../../store/categories/reducer';
 import { Text } from '../Text';
 import { View } from '../View';
+import { FavouriteIcon, StarIcon } from '../../assets/icons';
+
+type CategorySliderProps = {
+  id: string;
+  title: string;
+  onPress: any;
+  isFirstItem: boolean;
+  isLastItem: boolean;
+  isActiveItem: boolean;
+};
+
+const ItemIcons = {
+  [C.FAVOURITES]: StarIcon,
+  [C.HOT]: StarIcon,
+  [C.SALADS]: StarIcon,
+  [C.BAKING]: StarIcon,
+  [C.DRINKS]: StarIcon,
+};
 
 export const CategorySliderItem = ({
-  id, title, isLastItem, isActiveItem,
-}: {
-  id: number; title: string; isLastItem: boolean; isActiveItem: boolean;
-}) => {
-  const dispatch = useDispatch();
+  id,
+  title,
+  isFirstItem,
+  isLastItem,
+  onPress,
+  isActiveItem,
+}: CategorySliderProps) => {
+  const IconImage = ItemIcons[id];
 
   return (
     <TouchableOpacity
-      style={[styles.container, !isLastItem && styles.itemSpace]}
-      onPress={() => dispatch(setActiveCategory(isActiveItem ? null : { id, title }))}
+      style={[
+        styles.container,
+        !isLastItem && styles.itemSpace,
+        isFirstItem && styles.leftSpace,
+        isLastItem && styles.rightSpace,
+      ]}
+      onPress={() => onPress(isActiveItem ? null : { id, title })}
     >
       <View style={[styles.image, isActiveItem ? styles.active : styles.notActive]}>
-        <Text style={{ fontSize: 10 }}>
-          Картинка
-        </Text>
+        <IconImage width={40} height={40} color="#fff" />
       </View>
       <Text style={styles.title}>
         {title}
@@ -32,12 +55,18 @@ export const CategorySliderItem = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: 75,
-    height: 100,
+    width: 70,
+    height: 110,
     justifyContent: 'center',
     alignItems: 'center',
   },
   itemSpace: {
+    marginRight: 10,
+  },
+  leftSpace: {
+    marginLeft: 10,
+  },
+  rightSpace: {
     marginRight: 10,
   },
   title: {
@@ -45,8 +74,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   image: {
-    width: 60,
-    height: 60,
+    width: 65,
+    height: 65,
     borderRadius: 21,
     backgroundColor: '#7c7c7c',
     marginBottom: 7,

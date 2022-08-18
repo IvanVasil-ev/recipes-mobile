@@ -1,28 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Categories as C } from '../../constants/Categories';
 
 export const initialState = {
   categories: [
-    { id: 1, title: 'Избранное' },
-    { id: 3, title: 'Горячее' },
-    { id: 4, title: 'Второе' },
-    { id: 5, title: 'Напитки' },
-    { id: 6, title: 'Десерты' },
-    { id: 7, title: 'Салаты' },
+    { id: C.FAVOURITES, title: 'Избранное' },
+    { id: C.HOT, title: 'Горячее' },
+    { id: C.SALADS, title: 'Салаты' },
+    { id: C.BAKING, title: 'Выпечка' },
+    { id: C.DRINKS, title: 'Напитки' },
   ],
-  activeCategory: null,
 };
 
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
-  reducers: {
-    setActiveCategory(state, action) {
-      state.activeCategory = action.payload;
-    },
-  },
+  reducers: {},
 });
 
 const { actions, reducer } = categoriesSlice;
-export const { setActiveCategory } = actions;
+// export const {} = actions;
 
 export default reducer;

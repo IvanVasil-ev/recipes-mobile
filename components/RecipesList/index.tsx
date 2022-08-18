@@ -10,7 +10,7 @@ import { View } from '../View';
 import { Text } from '../Text';
 import { RecipeItem } from './RecipeItem';
 
-export const RecipesList = ({ navigation }: any) => {
+export const RecipesList = ({ activeCategory, navigation }: any) => {
   const data = [];
 
   return data.length ? (
