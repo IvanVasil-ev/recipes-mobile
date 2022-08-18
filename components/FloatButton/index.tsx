@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { Svg, Path } from 'react-native-svg';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 
 export const FloatButton = ({ navigation }: any) => (
   <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('NewRecipe')}>
-    <Text style={styles.text}>
-      +
-    </Text>
+    <Svg width={25} height={25} fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={3}>
+      <Path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+    </Svg>
   </TouchableOpacity>
 );
 
@@ -29,10 +30,5 @@ const styles = StyleSheet.create({
     shadowRadius: 6.27,
     elevation: 10,
     zIndex: 1000,
-  },
-  text: {
-    lineHeight: 60,
-    fontSize: 25,
-    color: '#ffffff',
   },
 });

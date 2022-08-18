@@ -1,21 +1,34 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
+import { setActiveCategory } from '../../store/categories/reducer';
 import { Text } from '../Text';
 import { View } from '../View';
 
-export const CategorySliderItem = ({ id, title, isLastItem }: { id: number; title: string; isLastItem: boolean }) => (
-  <TouchableOpacity style={[styles.container, !isLastItem && styles.itemSpace]} onPress={() => {}}>
-    <View style={[styles.image, styles.notActive]}>
-      <Text style={{ fontSize: 10 }}>
-        Картинка
+export const CategorySliderItem = ({
+  id, title, isLastItem, isActiveItem,
+}: {
+  id: number; title: string; isLastItem: boolean; isActiveItem: boolean;
+}) => {
+  const dispatch = useDispatch();
+
+  return (
+    <TouchableOpacity
+      style={[styles.container, !isLastItem && styles.itemSpace]}
+      onPress={() => dispatch(setActiveCategory(isActiveItem ? null : { id, title }))}
+    >
+      <View style={[styles.image, isActiveItem ? styles.active : styles.notActive]}>
+        <Text style={{ fontSize: 10 }}>
+          Картинка
+        </Text>
+      </View>
+      <Text style={styles.title}>
+        {title}
       </Text>
-    </View>
-    <Text style={styles.title}>
-      {title}
-    </Text>
-  </TouchableOpacity>
-);
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

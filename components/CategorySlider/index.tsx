@@ -2,13 +2,14 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { StyleSheet, FlatList, Platform } from 'react-native';
 
-import { getCategories } from '../../store/categories/selectors';
+import { getActiveCategory, getCategories } from '../../store/categories/selectors';
 import { CategorySliderItem } from './CategorySliderItem';
 import { Text } from '../Text';
 import { View } from '../View';
 
 export const CategorySlider = () => {
   const data = useSelector(getCategories) || [];
+  const activeCategory = useSelector(getActiveCategory);
 
   return data.length ? (
     <FlatList
@@ -22,6 +23,7 @@ export const CategorySlider = () => {
           id={id}
           title={title}
           isLastItem={index === (data.length - 1)}
+          isActiveItem={activeCategory?.id === id}
         />
       )}
     />
