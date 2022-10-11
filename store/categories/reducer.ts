@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Categories as C } from '../../constants/Categories';
+import { categories as C } from '../../constants/categories';
 
 export const initialState = {
   categories: [

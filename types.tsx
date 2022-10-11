@@ -9,7 +9,7 @@ declare global {
 export type RootStackParamList = {
   Root: undefined;
   Modal: undefined;
-  Recipe: undefined;
+  Recipe: { item: { title: string } };
   NewRecipe: undefined;
 };
 

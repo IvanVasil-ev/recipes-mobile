@@ -1,4 +1,4 @@
-export const Categories = {
+export const categories = {
   FAVOURITES: 'FAVOURITES',
   HOT: 'HOT',
   SALADS: 'SALADS',

@@ -10,6 +10,8 @@ import { View } from '../View';
 import { Text } from '../Text';
 import { RecipeItem } from './RecipeItem';
 
+const mockList = [];
+
 export const RecipesList = ({ activeCategory, navigation }: any) => {
   const data = [];
 
@@ -30,7 +32,13 @@ export const RecipesList = ({ activeCategory, navigation }: any) => {
       <Text style={styles.noContentText}>
         У вас еще нет рецептов
       </Text>
-      <TouchableOpacity style={styles.testRecipe} onPress={() => navigation.navigate('Recipe')}>
+      <Text style={styles.noContentCaption}>
+        Вы можете добавить их с помощью кнопки +
+      </Text>
+      <TouchableOpacity
+        style={styles.testRecipe}
+        onPress={() => navigation.navigate('Recipe', { item: { title: 'Hello' } })}
+      >
         <Text>
           Тестовый рецепт
         </Text>
@@ -50,6 +58,12 @@ const styles = StyleSheet.create({
   noContentText: {
     fontSize: 25,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  noContentCaption: {
+    fontSize: 15,
+    marginTop: 10,
+    textAlign: 'center',
   },
   testRecipe: {
     borderWidth: 2,

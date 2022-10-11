@@ -1,21 +1,26 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { SafeAreaView, Text } from '../components';
+import { SafeAreaView, TextInput } from '../components';
 
-export const NewRecipeScreen = () => (
-  <SafeAreaView style={styles.container}>
-    <Text style={styles.title}>
-      Создание нового рецепта в разработке
-    </Text>
-  </SafeAreaView>
-);
+// Картинка, Описание, Название, Игредиенты: { название, кол-во/вес }
+export const NewRecipeScreen = () => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [ingredient, setIngredient] = useState('');
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <TextInput title="Название" value={title} onChange={setTitle} />
+      <TextInput title="Ингредиент" value={ingredient} onChange={setIngredient} />
+      <TextInput title="Описание" multiline value={description} onChange={setDescription} />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   title: {
     fontSize: 20,

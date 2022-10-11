@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Categories as C } from '../../constants/Categories';
+import { categories as C } from '../../constants/categories';
 
 import { Text } from '../Text';
 import { View } from '../View';
-import { FavouriteIcon, StarIcon } from '../../assets/icons';
+import { StarIcon } from '../../assets/icons';
 
 type CategorySliderProps = {
   id: string;

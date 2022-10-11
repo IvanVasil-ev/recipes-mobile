@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Colors } from '../../constants/Colors';
+import { colors } from '../../constants/colors';
 import { Text } from '../Text';
 import { View } from '../View';
 
@@ -36,7 +36,7 @@ export const EditScreenInfo = ({ path }: { path: string }) => (
 
     <View style={styles.helpContainer}>
       <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-        <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
+        <Text style={styles.helpLinkText} lightColor={colors.light.tint}>
           Tap here if your app doesn&apos;t automatically update after making changes
         </Text>
       </TouchableOpacity>
